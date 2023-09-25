@@ -150,6 +150,13 @@ input[type="range"]:focus::-moz-range-thumb {
   cursor: pointer;
   transition: all 0.3s ease-in-out;
   text-decoration: none;
+
+}
+
+
+a{
+  color: #000000;
+  font-size: 1rem;
   /* delete text underline*/
   text-decoration: none;
   outline: none;
@@ -159,6 +166,12 @@ input[type="range"]:focus::-moz-range-thumb {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+}
+
+
+a:hover{
+  background-color: #000000;
+  color: #77bb41;
 }
 
 #question-button:hover {
