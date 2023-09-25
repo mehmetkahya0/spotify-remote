@@ -58,19 +58,23 @@ window.onSpotifyWebPlaybackSDKReady = () => {
 
   // Add event listeners to the control buttons
   document.getElementById("prev-button").addEventListener("click", () => {
+    console.log("pressed prev button")
     player.previousTrack();
   });
 
   document.getElementById("play-button").addEventListener("click", () => {
+    console.log("pressed play button")
     player.togglePlay();
   });
 
   document.getElementById("next-button").addEventListener("click", () => {
+    console.log("pressed next button")
     player.nextTrack();
   });
 
   // Add event listener to the pause button
   document.getElementById("pause-button").addEventListener("click", () => {
+    console.log("pressed pause button")
     player.pause();
   });
 
