@@ -138,10 +138,12 @@ input[type="range"]:focus::-moz-range-thumb {
 }
 
 #question-button {
+  display: flex;
   position: absolute;
   top: 0;
   right: 0;
   margin: 1rem;
+  margin-right: 10rem;
   padding: 0.5rem 1rem;
   background-color: #77bb41;
   border: none;
@@ -173,6 +175,29 @@ a:hover {
 }
 
 #question-button:hover {
+  background-color: #000000;
+  color: #77bb41;
+  filter: drop-shadow(0px 0px 10px #77bb41);
+}
+
+#use {
+  display: flex;
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 1rem;
+  padding: 0.5rem 1rem;
+  background-color: #77bb41;
+  border: none;
+  border-radius: 0.5rem;
+  color: #000000;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  text-decoration: none;
+}
+
+#use:hover {
   background-color: #000000;
   color: #77bb41;
   filter: drop-shadow(0px 0px 10px #77bb41);

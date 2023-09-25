@@ -1,4 +1,3 @@
-
 // Load the Spotify Web Playback SDK script
 window.onSpotifyWebPlaybackSDKReady = () => {
   // Initialize the player
@@ -6,17 +5,14 @@ window.onSpotifyWebPlaybackSDKReady = () => {
     name: "My Spotify Player",
     getOAuthToken: (cb) => {
       // Get an access token from the Spotify Web API
-      fetch(
-        "https://accounts.spotify.com/api/TOKEN",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/x-www-form-urlencoded",
-            Authorization: "Basic " + btoa(CLIENT_ID + ":" + CLIENT_SECRET),
-          },
-          body: "grant_type=client_credentials",
-        }
-      )
+      fetch("https://accounts.spotify.com/api/TOKEN", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+          Authorization: "Basic " + btoa(CLIENT_ID + ":" + CLIENT_SECRET),
+        },
+        body: "grant_type=client_credentials",
+      })
         .then((response) => response.json())
         .then((data) => {
           // Pass the access token to the player
