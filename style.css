@@ -151,11 +151,9 @@ input[type="range"]:focus::-moz-range-thumb {
   cursor: pointer;
   transition: all 0.3s ease-in-out;
   text-decoration: none;
-
 }
 
-
-a{
+a {
   color: #000000;
   font-size: 1rem;
   /* delete text underline*/
@@ -169,8 +167,7 @@ a{
   user-select: none;
 }
 
-
-a:hover{
+a:hover {
   background-color: #000000;
   color: #77bb41;
 }
@@ -181,9 +178,9 @@ a:hover{
   filter: drop-shadow(0px 0px 10px #77bb41);
 }
 
-
-.info{
+.info {
   position: absolute;
   bottom: 0;
   margin-bottom: 20px;
+  opacity: 0.5;
 }
