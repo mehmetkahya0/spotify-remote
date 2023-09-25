@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Spotify Web Player</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js"></script>
+  </head>
+  <body>
+    <div id="player">
+      <div id="track-info">
+        <h1 id="track-name"></h1>
+        <h2 id="artist-name"></h2>
+      </div>
+
+      <div id="controls">
+        <button id="prev-button">previously</button>
+        <button id="play-button">play</button>
+        <button id="next-button">next</button>
+        <button id="pause-button">pause</button>
+      </div>
+
+      <div id="volume">
+        <i class="fas fa-volume-down"></i>
+        <input type="range" min="0" max="100" value="50" id="volume-slider" />
+        <output for="volume-slider" id="volume-output">%50</output>
+
+        <script>
+          var slider = document.getElementById("volume-slider");
+          var output = document.getElementById("volume-output");
+          output.innerHTML = "%" + slider.value;
+
+          slider.oninput = function () {
+            output.innerHTML = "%" + this.value;
+          };
+        </script>
+
+        <i class="fas fa-volume-up"></i>
+      </div>
+    </div>
+  </body>
+</html>
