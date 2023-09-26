@@ -1,0 +1,72 @@
+* {
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  margin: 0;
+  background-color: #222222;
+  color: #77bb41;
+}
+
+header {
+  font-weight: bolder;
+  font-size: xx-large;
+  padding: 20px;
+  background-color: #050505;
+  color: #77bb41;
+  text-align: start;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  font-size: medium;
+}
+
+button {
+  display: flex;
+  margin-top: 10px;
+  padding: 0.5rem 1rem;
+  background-color: #77bb41;
+  border: none;
+  border-radius: 0.5rem;
+  color: #000000;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  text-decoration: none;
+  font-weight: bolder;
+}
+
+button:hover {
+  background-color: #000000;
+}
+
+a {
+  background-color: #77bb41;
+  color: #000000;
+  font-size: 1rem;
+  /* delete text underline*/
+  text-decoration: none;
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+a:hover {
+  background-color: #000000;
+  color: #77bb41;
+}
