@@ -1,87 +1,38 @@
-// Load the Spotify Web Playback SDK script
 window.onSpotifyWebPlaybackSDKReady = () => {
-  // Initialize the player
+  const token = "token";
   const player = new Spotify.Player({
-    name: "My Spotify Player",
+    name: "Spotify Web Control",
     getOAuthToken: (cb) => {
-      // Get an access token from the Spotify Web API
-      fetch("https://accounts.spotify.com/api/TOKEN", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/x-www-form-urlencoded",
-          Authorization: "Basic " + btoa(CLIENT_ID + ":" + CLIENT_SECRET),
-        },
-        body: "grant_type=client_credentials",
-      })
-        .then((response) => response.json())
-        .then((data) => {
-          // Pass the access token to the player
-          cb(data.access_token);
-        })
-        .catch((error) => console.error(error));
+      cb(token);
     },
+    volume: 0.5,
   });
 
-  // Connect to the player
-  player.connect().then((success) => {
-    if (success) {
-      console.log("The Web Playback SDK successfully connected to Spotify!");
-    } else {
-      console.log("The Web Playback SDK could not connect to Spotify.");
-    }
-  });
-
-  // Play a track
+  // Ready
   player.addListener("ready", ({ device_id }) => {
-    fetch(`https://api.spotify.com/v1/me/player/play?device_id=${device_id}`, {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: "Bearer " + access_token,
-      },
-      body: JSON.stringify({
-        uris: ["spotify:track:7xGfFoTpQ2E7fRF5lN10tr"],
-      }),
-    });
+    console.log("Ready with Device ID", device_id);
   });
 
-  // Listen for changes in the player state
-  player.addListener("player_state_changed", (state) => {
-    if (state) {
-      // Update the track info elements
-      document.getElementById("track-name").textContent =
-        state.track_window.current_track.name;
-      document.getElementById("artist-name").textContent =
-        state.track_window.current_track.artists[0].name;
-    }
+  // Not Ready
+  player.addListener("not_ready", ({ device_id }) => {
+    console.log("Device ID has gone offline", device_id);
   });
 
-  // Add event listeners to the control buttons
-  document.getElementById("prev-button").addEventListener("click", () => {
-    console.log("pressed prev button")
-    player.previousTrack();
+  player.addListener("initialization_error", ({ message }) => {
+    console.error(message);
   });
 
-  document.getElementById("play-button").addEventListener("click", () => {
-    console.log("pressed play button")
+  player.addListener("authentication_error", ({ message }) => {
+    console.error(message);
+  });
+
+  player.addListener("account_error", ({ message }) => {
+    console.error(message);
+  });
+
+  document.getElementById("play-button").onclick = function () {
     player.togglePlay();
-  });
+  };
 
-  document.getElementById("next-button").addEventListener("click", () => {
-    console.log("pressed next button")
-    player.nextTrack();
-  });
-
-  // Add event listener to the pause button
-  document.getElementById("pause-button").addEventListener("click", () => {
-    console.log("pressed pause button")
-    player.pause();
-  });
-
-  // Add event listener to the volume slider
-  document
-    .getElementById("volume-slider")
-    .addEventListener("input", (event) => {
-      player.setVolume(event.target.value / 100);
-    });
+  player.connect();
 };
