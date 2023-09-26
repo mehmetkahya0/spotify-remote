@@ -31,7 +31,18 @@ window.onSpotifyWebPlaybackSDKReady = () => {
   });
 
   document.getElementById("play-button").onclick = function () {
+    console.log("pressed play button");
     player.togglePlay();
+  };
+
+  document.getElementById("next-button").onclick = function () {
+    console.log("pressed next button");
+    player.nextTrack();
+  };
+
+  document.getElementById("prev-button").onclick = function () {
+    console.log("pressed prev button");
+    player.previousTrack();
   };
 
   player.connect();
