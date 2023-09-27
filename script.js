@@ -1,8 +1,8 @@
 window.onSpotifyWebPlaybackSDKReady = () => {
   const token =
-    "token";
+    "TOKEN";
   const player = new Spotify.Player({
-    name: "Spotify Web Control",
+    name: "Mehmet Spotifty Remote Control",
     getOAuthToken: (cb) => {
       cb(token);
     },
@@ -34,6 +34,18 @@ window.onSpotifyWebPlaybackSDKReady = () => {
   document.getElementById("play-button").onclick = function () {
     player.togglePlay();
   };
+
+  document.getElementById("next-button").onclick = function () {
+    player.nextTrack();
+  };
+
+  document.getElementById("prev-button").onclick = function () {
+    player.previousTrack();
+  };
+
+  document.getElementById("volume-slider").addEventListener("input", (event) => {
+      player.setVolume(event.target.value / 100);
+    });
 
   player.connect();
 };
