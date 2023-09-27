@@ -2,7 +2,7 @@ window.onSpotifyWebPlaybackSDKReady = () => {
   const token =
     "TOKEN";
   const player = new Spotify.Player({
-    name: "Mehmet Spotifty Remote Control",
+    name: "Mehmet Spotify Remote Control",
     getOAuthToken: (cb) => {
       cb(token);
     },
@@ -32,7 +32,6 @@ window.onSpotifyWebPlaybackSDKReady = () => {
   });
 
   document.getElementById("play-button").onclick = function () {
-    console.log("pressed play button");
     player.togglePlay();
   };
 
@@ -44,9 +43,10 @@ window.onSpotifyWebPlaybackSDKReady = () => {
     player.previousTrack();
   };
 
-  document.getElementById("volume-slider").addEventListener("input", (event) => {
+  document
+    .getElementById("volume-slider")
+    .addEventListener("input", (event) => {
       player.setVolume(event.target.value / 100);
     });
-
   player.connect();
 };
