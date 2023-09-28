@@ -1,8 +1,8 @@
 window.onSpotifyWebPlaybackSDKReady = () => {
   const token =
-    "token";
+    "TOKEN";
   const player = new Spotify.Player({
-    name: "Mehmet Spotify Remote Control",
+    name: "l-Mehmet Spotify Remote Control",
     getOAuthToken: (cb) => {
       cb(token);
     },
@@ -60,5 +60,17 @@ window.onSpotifyWebPlaybackSDKReady = () => {
     document.getElementById("progress-bar").value = state.position;
   });
 
+  // get album cover and display it
+  player.addListener("player_state_changed", (state) => {
+    document.getElementById("album-image").src = state.track_window.current_track.album.images[0].url;
+  });
+
+  // get progress bar and display it
+  player.addListener("player_state_changed", (state) => {
+    document.getElementById("progress-bar").max = state.duration;
+    document.getElementById("progress-bar").value = state.position;
+  });
+
+  
   player.connect();
 };
