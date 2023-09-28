@@ -262,7 +262,7 @@ a:hover {
 
 img {
   width: 300px;
-  height: auto;
+  height: 300px;
   border-radius: 2%;
   margin-top: 20px;
 }
@@ -278,7 +278,7 @@ img {
   position: relative;
   display: inline-flex;
   /* Set the width to 100% to make it fill the width of the album image */
-  width: 50%;
+  width: 300px;
   /*make a modern ui for progress bar*/
   background-color: #222222;
   padding: 0.75%;
@@ -286,6 +286,7 @@ img {
   align-items: center;
   justify-content: center;
   text-align: center;
+  margin-top: 10px;
   /* Add a box shadow */
   filter: drop-shadow(0px 0px 15px rgb(24, 24, 24));
 
