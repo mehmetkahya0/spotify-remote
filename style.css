@@ -47,6 +47,7 @@ body {
 
 
 #controls {
+  font-family: Arial, Helvetica, sans-serif !important;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -217,6 +218,17 @@ a:hover {
   bottom: 0;
   margin-bottom: 20px;
   opacity: 0.5;
+  font-size: 1rem;
+  text-align: center;
+  width: 100%;
+  color: #fff;
+  font-weight: bolder;
+  text-decoration: none;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
+  left: 0;
 }
 
 
@@ -265,6 +277,18 @@ img {
   height: 300px;
   border-radius: 2%;
   margin-top: 20px;
+  transition: all 0.5s ease-in-out;
+}
+
+
+img:hover {
+  width: 600px;
+  height: 600px;
+  border-radius: 2%;
+  margin-top: 20px;
+  filter: drop-shadow(0px 0px 10px #77bb41);
+  transition: all 0.5s ease-in-out;
+  cursor: pointer;
 }
 
 
@@ -273,7 +297,7 @@ img {
   position: relative;
 }
 
-#progress-bar {
+#progress-bar { 
   /* Set the position to absolute so we can position it relative to the album image */
   position: relative;
   display: inline-flex;
@@ -282,24 +306,30 @@ img {
   /*make a modern ui for progress bar*/
   background-color: #222222;
   padding: 0.75%;
-  border-radius: 50px;
+  border-radius: 10%;
   align-items: center;
   justify-content: center;
   text-align: center;
   margin-top: 10px;
   /* Add a box shadow */
   filter: drop-shadow(0px 0px 15px rgb(24, 24, 24));
+  height: 20px;
 
 }
 
-
-progress{
-  background-color: #222222;
-  padding: 0.75%;
-  border-radius: 50px;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
+#progress-bar-fill {
+  /* Set the position to absolute so we can position it relative to the progress bar */
+  position: absolute;
+  /* Set the height to 100% so it fills the height of progress bar */
+  height: 100%;
+  /* Set the background color */
+  background-color: #77bb41;
+  /* Set the width to 0% so the progress bar is empty to start */
+  width: 0%;
+  /* Set the border-radius to 10px to make it round */
+  border-radius: 10%;
   /* Add a box shadow */
   filter: drop-shadow(0px 0px 15px rgb(24, 24, 24));
 }
+
+
