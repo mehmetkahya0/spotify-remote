@@ -2,7 +2,7 @@ window.onSpotifyWebPlaybackSDKReady = () => {
   const token =
     "TOKEN";
   const player = new Spotify.Player({
-    name: "l-Mehmet Spotify Remote Control",
+    name: "local-Mehmet Spotify Remote Control",
     getOAuthToken: (cb) => {
       cb(token);
     },
@@ -52,17 +52,22 @@ window.onSpotifyWebPlaybackSDKReady = () => {
   // get track info
   player.addListener("player_state_changed", (state) => {
     console.log(state);
-    document.getElementById("track-name").innerHTML = state.track_window.current_track.name;
-    document.getElementById("artist-name").innerHTML = state.track_window.current_track.artists[0].name;
-    document.getElementById("album-name").innerHTML = state.track_window.current_track.album.name;
-    document.getElementById("album-image").src = state.track_window.current_track.album.images[0].url;
+    document.getElementById("track-name").innerHTML =
+      state.track_window.current_track.name;
+    document.getElementById("artist-name").innerHTML =
+      state.track_window.current_track.artists[0].name;
+    document.getElementById("album-name").innerHTML =
+      state.track_window.current_track.album.name;
+    document.getElementById("album-image").src =
+      state.track_window.current_track.album.images[0].url;
     document.getElementById("progress-bar").max = state.duration;
     document.getElementById("progress-bar").value = state.position;
   });
 
   // get album cover and display it
   player.addListener("player_state_changed", (state) => {
-    document.getElementById("album-image").src = state.track_window.current_track.album.images[0].url;
+    document.getElementById("album-image").src =
+      state.track_window.current_track.album.images[0].url;
   });
 
   // get progress bar and display it
@@ -71,6 +76,14 @@ window.onSpotifyWebPlaybackSDKReady = () => {
     document.getElementById("progress-bar").value = state.position;
   });
 
-  
+  //time info. current time - duration. Use minutes and seconds
+  player.addListener("player_state_changed", (state) => {
+    var duration = state.duration;
+    var minutes = Math.floor(duration / 60000);
+    var seconds = ((duration % 60000) / 1000).toFixed(0);
+    document.getElementById("duration").innerHTML =
+      minutes + ":" + (seconds < 10 ? "0" : "") + seconds;
+  });
+
   player.connect();
 };
