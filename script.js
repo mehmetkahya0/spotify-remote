@@ -2,7 +2,7 @@ window.onSpotifyWebPlaybackSDKReady = () => {
   const token =
     "TOKEN";
   const player = new Spotify.Player({
-    name: "Mehmet Spotifty Remote Control",
+    name: "repl Spotify Remote Control",
     getOAuthToken: (cb) => {
       cb(token);
     },
@@ -32,7 +32,6 @@ window.onSpotifyWebPlaybackSDKReady = () => {
   });
 
   document.getElementById("play-button").onclick = function () {
-    console.log("pressed play button");
     player.togglePlay();
   };
 
@@ -44,9 +43,22 @@ window.onSpotifyWebPlaybackSDKReady = () => {
     player.previousTrack();
   };
 
-  document.getElementById("volume-slider").addEventListener("input", (event) => {
+  document
+    .getElementById("volume-slider")
+    .addEventListener("input", (event) => {
       player.setVolume(event.target.value / 100);
     });
+
+  // get track info
+  player.addListener("player_state_changed", (state) => {
+    console.log(state);
+    document.getElementById("track-name").innerHTML = state.track_window.current_track.name;
+    document.getElementById("artist-name").innerHTML = state.track_window.current_track.artists[0].name;
+    document.getElementById("album-name").innerHTML = state.track_window.current_track.album.name;
+    document.getElementById("album-image").src = state.track_window.current_track.album.images[0].url;
+    document.getElementById("progress-bar").max = state.duration;
+    document.getElementById("progress-bar").value = state.position;
+  });
 
   player.connect();
 };
