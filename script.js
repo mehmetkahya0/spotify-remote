@@ -1,6 +1,6 @@
 window.onSpotifyWebPlaybackSDKReady = () => {
   const token =
-    "token";
+    "TOKEN";
   const player = new Spotify.Player({
     name: "local-Mehmet Spotify Remote Control",
     getOAuthToken: (cb) => {
