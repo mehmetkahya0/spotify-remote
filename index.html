@@ -12,10 +12,24 @@
       <div id="track-info">
         <h1 id="track-name"></h1>
         <h2 id="artist-name"></h2>
+        <h3 id="album-name"></h3>
+        
+        <div class="progress-bar-container">
+            <!--- album cover -->
+          <img id="album-image" src="" alt="" />
+          <div class="progress-bar-container2">
+            <progress id="progress-bar" min="0" max="100" value="0"></progress>
+            <div id="time-info">
+              <span id="duration">0:00</span>
+            
+          </div>
+
+        </div>
+            
       </div>
 
       <div id="controls">
-        <button id="prev-button">previously</button>
+        <button id="prev-button"><i class="fa-regular fa-play"></i>previously</button>
         <button id="play-button">play/pause</button>
         <button id="next-button">next</button>
       </div>
@@ -36,13 +50,15 @@
           };
         </script>
 
-        <button id="question-button"><a href="mailto:mehmetkahyakas5@gmail.com">feedback</a></button>
+        <button id="question-button">
+          <a href="mailto:mehmetkahyakas5@gmail.com">feedback</a>
+        </button>
         <button id="use"><a href="use/use.html">How to use?</a></button>
       </div>
 
-      <div class="info">
+    <div class="info">
         [ Mehmet Kahya - spotify remote controller - 2023 ]
-      </div>
+    </div>
     </div>
   </body>
 </html>

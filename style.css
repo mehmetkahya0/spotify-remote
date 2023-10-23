@@ -35,9 +35,19 @@ body {
 #artist-name {
   font-size: 1.5rem;
   margin: 0;
+  opacity: 0.5;
 }
 
+#album-name{
+  font-size: 1rem;
+  opacity: 0.25;
+  margin: 0;
+}
+
+
+
 #controls {
+  font-family: Arial, Helvetica, sans-serif !important;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -208,4 +218,118 @@ a:hover {
   bottom: 0;
   margin-bottom: 20px;
   opacity: 0.5;
+  font-size: 1rem;
+  text-align: center;
+  width: 100%;
+  color: #fff;
+  font-weight: bolder;
+  text-decoration: none;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
+  left: 0;
 }
+
+
+/* optimize full page for mobile*/
+@media only screen and (max-width: 600px) {
+  #question-button {
+    margin-right: 10rem;
+  }
+  #use {
+    margin-right: 2rem;
+  }
+  #volume {
+    margin-bottom: 1rem;
+  }
+  #volume-output {
+    font-size: 1rem;
+  }
+  #track-name {
+    font-size: 1.5rem;
+  }
+  #artist-name {
+    font-size: 1rem;
+  }
+  #controls {
+    margin-bottom: 1rem;
+  }
+  button {
+    font-size: 1.5rem;
+  }
+  #track-info {
+    margin-bottom: 1rem;
+  }
+  #player {
+    height: 100%;
+  }
+  .info {
+    margin-bottom: 10px;
+  }
+}
+
+
+
+
+img {
+  width: 300px;
+  height: 300px;
+  border-radius: 2%;
+  margin-top: 20px;
+  transition: all 0.5s ease-in-out;
+}
+
+
+img:hover {
+  width: 600px;
+  height: 600px;
+  border-radius: 2%;
+  margin-top: 20px;
+  filter: drop-shadow(0px 0px 10px #77bb41);
+  transition: all 0.5s ease-in-out;
+  cursor: pointer;
+}
+
+
+#album-image {
+  /* Set the position to relative so we can position the progress bar relative to it */
+  position: relative;
+}
+
+#progress-bar { 
+  /* Set the position to absolute so we can position it relative to the album image */
+  position: relative;
+  display: inline-flex;
+  /* Set the width to 100% to make it fill the width of the album image */
+  width: 300px;
+  /*make a modern ui for progress bar*/
+  background-color: #222222;
+  padding: 0.75%;
+  border-radius: 10%;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin-top: 10px;
+  /* Add a box shadow */
+  filter: drop-shadow(0px 0px 15px rgb(24, 24, 24));
+  height: 20px;
+
+}
+
+#progress-bar-fill {
+  /* Set the position to absolute so we can position it relative to the progress bar */
+  position: absolute;
+  /* Set the height to 100% so it fills the height of progress bar */
+  height: 100%;
+  /* Set the background color */
+  background-color: #77bb41;
+  /* Set the width to 0% so the progress bar is empty to start */
+  width: 0%;
+  /* Set the border-radius to 10px to make it round */
+  border-radius: 10%;
+  /* Add a box shadow */
+  filter: drop-shadow(0px 0px 15px rgb(24, 24, 24));
+}
+
+
